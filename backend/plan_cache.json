@@ -1,0 +1,778 @@
+{
+  "deadline_guardian_v7_full_routine_tasks::2026-06-25::in morning need to go to the gym for workout from 6:00 to 8:30, come back home, fresh up and take shower, grab breakfast around 9:30, do python course for 1 hour, get in meeting with my friend and professor for paperwork, have lunch around 1:00, take a quick nap for 1 hour, read my book, make tea around 5:30 and have family time till 10:00, dinner, complete my paper work, watch youtube content, sleep around 12:30 at night, and take breaks between tasks.": {
+    "created_at": "2026-06-25T01:06:04.745600",
+    "model_used": "gemini-2.5-flash-lite",
+    "plan": {
+      "summary": "Your day is packed with a mix of health, study, work, and personal activities, starting early with a gym workout and ending late with paperwork and sleep. Remember to incorporate breaks to stay energized.",
+      "tasks": [
+        {
+          "title": "Gym Workout",
+          "category": "Health",
+          "priority": "Medium",
+          "assigned_date": "2026-06-25",
+          "assigned_day": "Thursday",
+          "deadline": "2026-06-25",
+          "estimated_time": "2 hr 30 min",
+          "reason": "The user mentioned going to the gym for workout.",
+          "next_action": "Keep gym clothes and water bottle ready."
+        },
+        {
+          "title": "Fresh Up & Shower",
+          "category": "Health",
+          "priority": "Medium",
+          "assigned_date": "2026-06-25",
+          "assigned_day": "Thursday",
+          "deadline": "2026-06-25",
+          "estimated_time": "30 minutes",
+          "reason": "The user mentioned freshening up and taking a shower.",
+          "next_action": "Finish shower quickly before the next routine block."
+        },
+        {
+          "title": "Breakfast",
+          "category": "Health",
+          "priority": "Medium",
+          "assigned_date": "2026-06-25",
+          "assigned_day": "Thursday",
+          "deadline": "2026-06-25",
+          "estimated_time": "30 minutes",
+          "reason": "The user mentioned breakfast.",
+          "next_action": "Have breakfast before starting study or work."
+        },
+        {
+          "title": "Python Course",
+          "category": "Study",
+          "priority": "High",
+          "assigned_date": "2026-06-25",
+          "assigned_day": "Thursday",
+          "deadline": "2026-06-25",
+          "estimated_time": "1 hour",
+          "reason": "The user mentioned doing a Python course.",
+          "next_action": "Open the Python course and complete one module."
+        },
+        {
+          "title": "Friend & Professor Meeting",
+          "category": "Work",
+          "priority": "High",
+          "assigned_date": "2026-06-25",
+          "assigned_day": "Thursday",
+          "deadline": "2026-06-25",
+          "estimated_time": "1 hour",
+          "reason": "The user mentioned a meeting related to paperwork.",
+          "next_action": "Confirm meeting time and agenda."
+        },
+        {
+          "title": "Complete Paperwork",
+          "category": "Work",
+          "priority": "High",
+          "assigned_date": "2026-06-25",
+          "assigned_day": "Thursday",
+          "deadline": "2026-06-25",
+          "estimated_time": "1 hour",
+          "reason": "The user mentioned paperwork that needs to be completed.",
+          "next_action": "Gather required documents for paperwork."
+        },
+        {
+          "title": "Lunch",
+          "category": "Health",
+          "priority": "Medium",
+          "assigned_date": "2026-06-25",
+          "assigned_day": "Thursday",
+          "deadline": "2026-06-25",
+          "estimated_time": "30 minutes",
+          "reason": "The user mentioned lunch.",
+          "next_action": "Take lunch on time and avoid skipping meals."
+        },
+        {
+          "title": "Quick Nap",
+          "category": "Health",
+          "priority": "Medium",
+          "assigned_date": "2026-06-25",
+          "assigned_day": "Thursday",
+          "deadline": "2026-06-25",
+          "estimated_time": "1 hour",
+          "reason": "The user mentioned taking a quick nap.",
+          "next_action": "Set an alarm before starting the nap."
+        },
+        {
+          "title": "Reading Session",
+          "category": "Study",
+          "priority": "Medium",
+          "assigned_date": "2026-06-25",
+          "assigned_day": "Thursday",
+          "deadline": "2026-06-25",
+          "estimated_time": "1 hour",
+          "reason": "The user mentioned reading a book.",
+          "next_action": "Choose the book and read the first few pages."
+        },
+        {
+          "title": "Tea & Family Time",
+          "category": "Personal",
+          "priority": "Medium",
+          "assigned_date": "2026-06-25",
+          "assigned_day": "Thursday",
+          "deadline": "2026-06-25",
+          "estimated_time": "4 hr 30 min",
+          "reason": "The user mentioned tea and family time.",
+          "next_action": "Keep this as a relaxed evening block."
+        },
+        {
+          "title": "Dinner",
+          "category": "Health",
+          "priority": "Medium",
+          "assigned_date": "2026-06-25",
+          "assigned_day": "Thursday",
+          "deadline": "2026-06-25",
+          "estimated_time": "30 minutes",
+          "reason": "The user mentioned dinner.",
+          "next_action": "Finish dinner without delaying sleep too much."
+        },
+        {
+          "title": "Watch YouTube",
+          "category": "Personal",
+          "priority": "Low",
+          "assigned_date": "2026-06-25",
+          "assigned_day": "Thursday",
+          "deadline": "2026-06-25",
+          "estimated_time": "30 minutes",
+          "reason": "The user mentioned watching YouTube content.",
+          "next_action": "Limit YouTube time so it does not disturb sleep."
+        },
+        {
+          "title": "Sleep",
+          "category": "Health",
+          "priority": "High",
+          "assigned_date": "2026-06-25",
+          "assigned_day": "Thursday",
+          "deadline": "2026-06-25",
+          "estimated_time": "Rest block",
+          "reason": "The user mentioned going to bed or sleeping.",
+          "next_action": "Keep phone aside and prepare for sleep."
+        },
+        {
+          "title": "Break Between Tasks",
+          "category": "Health",
+          "priority": "Medium",
+          "assigned_date": "2026-06-25",
+          "assigned_day": "Thursday",
+          "deadline": "2026-06-25",
+          "estimated_time": "15 minutes",
+          "reason": "The user mentioned needing breaks between tasks.",
+          "next_action": "Take short breaks between heavy task blocks."
+        }
+      ],
+      "today_schedule": [
+        {
+          "time": "12:30 AM",
+          "activity": "Sleep",
+          "reason": "End of the day, time to rest."
+        },
+        {
+          "time": "6:00 AM - 8:30 AM",
+          "activity": "Gym Workout",
+          "reason": "Start the day with a workout."
+        },
+        {
+          "time": "After Gym",
+          "activity": "Fresh Up & Shower",
+          "reason": "Freshen up after workout."
+        },
+        {
+          "time": "9:30 AM",
+          "activity": "Breakfast",
+          "reason": "Fuel up for the day."
+        },
+        {
+          "time": "1:00 PM",
+          "activity": "Lunch",
+          "reason": "Midday meal break."
+        },
+        {
+          "time": "After Lunch",
+          "activity": "Quick Nap",
+          "reason": "Recharge with a short nap."
+        },
+        {
+          "time": "Between Tasks",
+          "activity": "Break Between Tasks",
+          "reason": "Essential for maintaining focus and energy."
+        },
+        {
+          "time": "Flexible",
+          "activity": "Python Course",
+          "reason": "Dedicated time for learning."
+        },
+        {
+          "time": "Flexible",
+          "activity": "Friend & Professor Meeting",
+          "reason": "Important meeting for paperwork."
+        },
+        {
+          "time": "Flexible",
+          "activity": "Reading Session",
+          "reason": "Relaxing activity after nap."
+        },
+        {
+          "time": "Flexible",
+          "activity": "Complete Paperwork",
+          "reason": "The user mentioned paperwork that needs to be completed."
+        },
+        {
+          "time": "5:30 PM - 10:00 PM",
+          "activity": "Tea & Family Time",
+          "reason": "Unwind and connect with family."
+        },
+        {
+          "time": "Night",
+          "activity": "Watch YouTube",
+          "reason": "Leisure time before sleep."
+        },
+        {
+          "time": "10:00 PM",
+          "activity": "Dinner",
+          "reason": "Evening meal."
+        }
+      ],
+      "weekly_plan": [],
+      "reminders": [
+        {
+          "time": "8:00 AM",
+          "message": "Gym session ending soon!",
+          "context": "Ensure you finish your workout on time.",
+          "action": "Start winding down your gym routine."
+        },
+        {
+          "time": "12:00 PM",
+          "message": "Meeting preparation reminder.",
+          "context": "Prepare for your meeting with friend and professor.",
+          "action": "Gather any necessary documents or notes."
+        },
+        {
+          "time": "5:00 PM",
+          "message": "Transition to family time.",
+          "context": "Prepare for your evening tea and family time.",
+          "action": "Start winding down work/study tasks."
+        },
+        {
+          "time": "11:30 PM",
+          "message": "Paperwork completion reminder.",
+          "context": "You have paperwork to complete before sleep.",
+          "action": "Focus on finishing the remaining paperwork."
+        }
+      ],
+      "habits": [
+        {
+          "name": "Daily Workout",
+          "frequency": "Daily",
+          "streak": "New habit",
+          "status": "Pending",
+          "next_action": "Go to the gym as planned."
+        },
+        {
+          "name": "Consistent Study",
+          "frequency": "Daily",
+          "streak": "New habit",
+          "status": "Pending",
+          "next_action": "Start your Python course module."
+        },
+        {
+          "name": "Regular Breaks",
+          "frequency": "Daily",
+          "streak": "New habit",
+          "status": "Pending",
+          "next_action": "Take a short break after each major task."
+        }
+      ],
+      "motivational_cards": [
+        {
+          "title": "Embrace the Grind",
+          "quote": "The only way to do great work is to love what you do.",
+          "action": "Find joy in your tasks today."
+        },
+        {
+          "title": "Power Through",
+          "quote": "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+          "action": "Keep pushing forward, even when it's tough."
+        },
+        {
+          "title": "Balance is Key",
+          "quote": "The key is not to prioritize what's on your schedule, but to schedule your priorities.",
+          "action": "Ensure your important tasks get dedicated time."
+        }
+      ],
+      "next_best_action": "Start your gym workout at 6:00 AM.",
+      "productivity_tip": "Schedule your breaks as diligently as you schedule your tasks. Short, regular breaks can significantly boost focus and prevent burnout."
+    }
+  },
+  "deadline_guardian_v8_cloudrun_cors::2026-06-28::dbms assignment tomorrow, java viva on friday, maths test after 2 days, pay electricity bill today, gym daily": {
+    "created_at": "2026-06-28T00:51:38.059741",
+    "model_used": "gemini-2.5-flash-lite",
+    "plan": {
+      "summary": "You have several important academic deadlines approaching, a bill to pay today, and a daily gym routine to maintain.",
+      "tasks": [
+        {
+          "title": "DBMS assignment",
+          "category": "Study/Work",
+          "priority": "High",
+          "assigned_date": "2026-06-29",
+          "assigned_day": "Monday",
+          "deadline": "2026-06-29",
+          "estimated_time": "3 hours",
+          "reason": "Assignment due tomorrow.",
+          "next_action": "Gather all necessary resources for the assignment."
+        },
+        {
+          "title": "Java viva",
+          "category": "Study/Work",
+          "priority": "High",
+          "assigned_date": "2026-07-03",
+          "assigned_day": "Friday",
+          "deadline": "2026-07-03",
+          "estimated_time": "2 hours",
+          "reason": "Viva scheduled for Friday.",
+          "next_action": "Review Java concepts for the viva."
+        },
+        {
+          "title": "Maths test",
+          "category": "Study/Work",
+          "priority": "High",
+          "assigned_date": "2026-06-30",
+          "assigned_day": "Tuesday",
+          "deadline": "2026-06-30",
+          "estimated_time": "4 hours",
+          "reason": "Test is in two days.",
+          "next_action": "Identify topics for the Maths test."
+        },
+        {
+          "title": "Pay electricity bill",
+          "category": "Bill",
+          "priority": "High",
+          "assigned_date": "2026-06-28",
+          "assigned_day": "Sunday",
+          "deadline": "2026-06-28",
+          "estimated_time": "30 minutes",
+          "reason": "User explicitly asked to pay the bill today.",
+          "next_action": "Locate the electricity bill and payment details."
+        },
+        {
+          "title": "Gym Workout",
+          "category": "Health",
+          "priority": "Medium",
+          "assigned_date": "2026-06-28",
+          "assigned_day": "Sunday",
+          "deadline": "2026-06-28",
+          "estimated_time": "1 hour",
+          "reason": "The user mentioned going to the gym for workout.",
+          "next_action": "Keep gym clothes and water bottle ready."
+        }
+      ],
+      "today_schedule": [
+        {
+          "time": "Morning",
+          "activity": "Gym Workout",
+          "reason": "Daily habit and user request."
+        },
+        {
+          "time": "Flexible",
+          "activity": "Pay electricity bill",
+          "reason": "Urgent task for today."
+        }
+      ],
+      "weekly_plan": [
+        {
+          "day": "Monday",
+          "date": "2026-06-29",
+          "items": [
+            {
+              "time": "Flexible",
+              "title": "DBMS assignment",
+              "category": "Study/Work",
+              "reason": "Due tomorrow."
+            }
+          ]
+        },
+        {
+          "day": "Tuesday",
+          "date": "2026-06-30",
+          "items": [
+            {
+              "time": "Flexible",
+              "title": "Maths test",
+              "category": "Study/Work",
+              "reason": "Test is in two days."
+            }
+          ]
+        },
+        {
+          "day": "Friday",
+          "date": "2026-07-03",
+          "items": [
+            {
+              "time": "Flexible",
+              "title": "Java viva",
+              "category": "Study/Work",
+              "reason": "Viva scheduled for Friday."
+            }
+          ]
+        }
+      ],
+      "reminders": [
+        {
+          "time": "2026-06-28 09:00 AM",
+          "message": "Electricity Bill Payment Reminder",
+          "context": "The electricity bill needs to be paid today.",
+          "action": "Complete the electricity bill payment."
+        },
+        {
+          "time": "2026-06-28 06:00 PM",
+          "message": "DBMS Assignment Check-in",
+          "context": "Start working on your DBMS assignment for tomorrow.",
+          "action": "Dedicate time to work on the DBMS assignment."
+        },
+        {
+          "time": "2026-06-29 09:00 AM",
+          "message": "DBMS Assignment Submission",
+          "context": "Your DBMS assignment is due today.",
+          "action": "Submit your DBMS assignment."
+        },
+        {
+          "time": "2026-06-30 09:00 AM",
+          "message": "Maths Test Preparation",
+          "context": "Your Maths test is tomorrow. Ensure you are prepared.",
+          "action": "Review Maths topics for the test."
+        }
+      ],
+      "habits": [
+        {
+          "name": "Gym Workout",
+          "frequency": "Daily",
+          "streak": "New habit",
+          "status": "Pending",
+          "next_action": "Prepare gym clothes and water bottle."
+        }
+      ],
+      "motivational_cards": [
+        {
+          "title": "Conquer Your Deadlines",
+          "quote": "The key is not to prioritize what's on your schedule, but to schedule your priorities.",
+          "action": "Identify your top 3 priorities for today."
+        },
+        {
+          "title": "Consistency is Key",
+          "quote": "The only way to do great work is to love what you do.",
+          "action": "Find joy in your daily tasks."
+        },
+        {
+          "title": "Future Self Will Thank You",
+          "quote": "Don't wait for the perfect moment, take the moment and make it perfect.",
+          "action": "Start working on your most challenging task now."
+        }
+      ],
+      "next_best_action": "Pay the electricity bill now to get it done.",
+      "productivity_tip": "Break down large tasks like assignments into smaller, manageable steps to avoid feeling overwhelmed."
+    }
+  },
+  "deadline_guardian_v8_cloudrun_cors::2026-06-28::in morning need to go to the gym for workout from 6:00 to 8:30, come back home, fresh up and take shower, grab breakfast around 9:30, do python course for 1 hour, get in meeting with my friend and professor for paperwork, have lunch around 1:00, take a quick nap for 1 hour, read my book, make tea around 5:30 and have family time till 10:00, dinner, complete my paper work, watch youtube content, sleep around 12:30 at night, and take breaks between tasks.": {
+    "created_at": "2026-06-28T01:04:50.638226",
+    "model_used": "gemini-2.5-flash-lite",
+    "plan": {
+      "summary": "Your Sunday is packed with a mix of health, study, work, and personal activities, starting early with a gym workout and ending with family time and sleep. Remember to incorporate breaks to stay energized.",
+      "tasks": [
+        {
+          "title": "Gym Workout",
+          "category": "Health",
+          "priority": "Medium",
+          "assigned_date": "2026-06-28",
+          "assigned_day": "Sunday",
+          "deadline": "2026-06-28",
+          "estimated_time": "2 hr 30 min",
+          "reason": "The user mentioned going to the gym for workout.",
+          "next_action": "Keep gym clothes and water bottle ready."
+        },
+        {
+          "title": "Fresh Up & Shower",
+          "category": "Health",
+          "priority": "Medium",
+          "assigned_date": "2026-06-28",
+          "assigned_day": "Sunday",
+          "deadline": "2026-06-28",
+          "estimated_time": "30 minutes",
+          "reason": "The user mentioned freshening up and taking a shower.",
+          "next_action": "Finish shower quickly before the next routine block."
+        },
+        {
+          "title": "Breakfast",
+          "category": "Health",
+          "priority": "Medium",
+          "assigned_date": "2026-06-28",
+          "assigned_day": "Sunday",
+          "deadline": "2026-06-28",
+          "estimated_time": "30 minutes",
+          "reason": "The user mentioned breakfast.",
+          "next_action": "Have breakfast before starting study or work."
+        },
+        {
+          "title": "Python Course",
+          "category": "Study",
+          "priority": "High",
+          "assigned_date": "2026-06-28",
+          "assigned_day": "Sunday",
+          "deadline": "2026-06-28",
+          "estimated_time": "1 hour",
+          "reason": "The user mentioned doing a Python course.",
+          "next_action": "Open the Python course and complete one module."
+        },
+        {
+          "title": "Friend & Professor Meeting",
+          "category": "Work",
+          "priority": "High",
+          "assigned_date": "2026-06-28",
+          "assigned_day": "Sunday",
+          "deadline": "2026-06-28",
+          "estimated_time": "1 hour",
+          "reason": "The user mentioned a meeting related to paperwork.",
+          "next_action": "Confirm meeting time and agenda."
+        },
+        {
+          "title": "Complete Paperwork",
+          "category": "Work",
+          "priority": "High",
+          "assigned_date": "2026-06-28",
+          "assigned_day": "Sunday",
+          "deadline": "2026-06-28",
+          "estimated_time": "1 hour",
+          "reason": "The user mentioned paperwork that needs to be completed.",
+          "next_action": "Gather required documents for paperwork."
+        },
+        {
+          "title": "Lunch",
+          "category": "Health",
+          "priority": "Medium",
+          "assigned_date": "2026-06-28",
+          "assigned_day": "Sunday",
+          "deadline": "2026-06-28",
+          "estimated_time": "30 minutes",
+          "reason": "The user mentioned lunch.",
+          "next_action": "Take lunch on time and avoid skipping meals."
+        },
+        {
+          "title": "Quick Nap",
+          "category": "Health",
+          "priority": "Medium",
+          "assigned_date": "2026-06-28",
+          "assigned_day": "Sunday",
+          "deadline": "2026-06-28",
+          "estimated_time": "1 hour",
+          "reason": "The user mentioned taking a quick nap.",
+          "next_action": "Set an alarm before starting the nap."
+        },
+        {
+          "title": "Reading Session",
+          "category": "Study",
+          "priority": "Medium",
+          "assigned_date": "2026-06-28",
+          "assigned_day": "Sunday",
+          "deadline": "2026-06-28",
+          "estimated_time": "1 hour",
+          "reason": "The user mentioned reading a book.",
+          "next_action": "Choose the book and read the first few pages."
+        },
+        {
+          "title": "Tea & Family Time",
+          "category": "Personal",
+          "priority": "Medium",
+          "assigned_date": "2026-06-28",
+          "assigned_day": "Sunday",
+          "deadline": "2026-06-28",
+          "estimated_time": "4 hr 30 min",
+          "reason": "The user mentioned tea and family time.",
+          "next_action": "Keep this as a relaxed evening block."
+        },
+        {
+          "title": "Dinner",
+          "category": "Health",
+          "priority": "Medium",
+          "assigned_date": "2026-06-28",
+          "assigned_day": "Sunday",
+          "deadline": "2026-06-28",
+          "estimated_time": "30 minutes",
+          "reason": "The user mentioned dinner.",
+          "next_action": "Finish dinner without delaying sleep too much."
+        },
+        {
+          "title": "Watch YouTube",
+          "category": "Personal",
+          "priority": "Low",
+          "assigned_date": "2026-06-28",
+          "assigned_day": "Sunday",
+          "deadline": "2026-06-28",
+          "estimated_time": "30 minutes",
+          "reason": "The user mentioned watching YouTube content.",
+          "next_action": "Limit YouTube time so it does not disturb sleep."
+        },
+        {
+          "title": "Sleep",
+          "category": "Health",
+          "priority": "High",
+          "assigned_date": "2026-06-28",
+          "assigned_day": "Sunday",
+          "deadline": "2026-06-28",
+          "estimated_time": "Rest block",
+          "reason": "The user mentioned going to bed or sleeping.",
+          "next_action": "Keep phone aside and prepare for sleep."
+        },
+        {
+          "title": "Break Between Tasks",
+          "category": "Health",
+          "priority": "Medium",
+          "assigned_date": "2026-06-28",
+          "assigned_day": "Sunday",
+          "deadline": "2026-06-28",
+          "estimated_time": "15 minutes",
+          "reason": "The user mentioned needing breaks between tasks.",
+          "next_action": "Take short breaks between heavy task blocks."
+        }
+      ],
+      "today_schedule": [
+        {
+          "time": "12:30 AM",
+          "activity": "Sleep",
+          "reason": "End of the day, rest."
+        },
+        {
+          "time": "6:00 AM - 8:30 AM",
+          "activity": "Gym Workout",
+          "reason": "Start the day with a workout."
+        },
+        {
+          "time": "After Gym",
+          "activity": "Fresh Up & Shower",
+          "reason": "Freshen up after workout."
+        },
+        {
+          "time": "9:30 AM",
+          "activity": "Breakfast",
+          "reason": "Fuel up for the day."
+        },
+        {
+          "time": "1:00 PM",
+          "activity": "Lunch",
+          "reason": "Midday meal break."
+        },
+        {
+          "time": "After Lunch",
+          "activity": "Quick Nap",
+          "reason": "Recharge with a short nap."
+        },
+        {
+          "time": "Between Tasks",
+          "activity": "Break Between Tasks",
+          "reason": "The user mentioned needing breaks between tasks."
+        },
+        {
+          "time": "Flexible",
+          "activity": "Python Course",
+          "reason": "Dedicated time for learning."
+        },
+        {
+          "time": "Flexible",
+          "activity": "Friend & Professor Meeting",
+          "reason": "Important meeting for paperwork."
+        },
+        {
+          "time": "Flexible",
+          "activity": "Reading Session",
+          "reason": "Engage in personal reading."
+        },
+        {
+          "time": "Flexible",
+          "activity": "Complete Paperwork",
+          "reason": "Finalize pending work."
+        },
+        {
+          "time": "5:30 PM - 10:00 PM",
+          "activity": "Tea & Family Time",
+          "reason": "Relax and connect with family."
+        },
+        {
+          "time": "Night",
+          "activity": "Watch YouTube",
+          "reason": "Leisure time."
+        },
+        {
+          "time": "10:00 PM",
+          "activity": "Dinner",
+          "reason": "Evening meal."
+        }
+      ],
+      "weekly_plan": [],
+      "reminders": [
+        {
+          "time": "8:30 AM",
+          "message": "Time to finish your workout and head home.",
+          "context": "Transitioning from gym to home.",
+          "action": "Pack up gym bag and start commute."
+        },
+        {
+          "time": "12:00 PM",
+          "message": "Check if your meeting with friend and professor is confirmed.",
+          "context": "Ensuring meeting details are clear.",
+          "action": "Send a quick confirmation message if needed."
+        },
+        {
+          "time": "4:00 PM",
+          "message": "Take a short break before starting family time.",
+          "context": "Transitioning from study/work to relaxation.",
+          "action": "Stretch, grab a drink, or do a quick mindfulness exercise."
+        },
+        {
+          "time": "11:30 PM",
+          "message": "Wind down for sleep.",
+          "context": "Preparing for bedtime.",
+          "action": "Avoid screens, read a book, or listen to calming music."
+        }
+      ],
+      "habits": [
+        {
+          "name": "Daily Workout",
+          "frequency": "Daily",
+          "streak": "New habit",
+          "status": "Pending",
+          "next_action": "Go to the gym as planned."
+        },
+        {
+          "name": "Consistent Study",
+          "frequency": "Daily",
+          "streak": "New habit",
+          "status": "Pending",
+          "next_action": "Complete the Python course session."
+        },
+        {
+          "name": "Regular Breaks",
+          "frequency": "Daily",
+          "streak": "New habit",
+          "status": "Pending",
+          "next_action": "Schedule and take short breaks between tasks."
+        }
+      ],
+      "motivational_cards": [
+        {
+          "title": "Embrace the Day",
+          "quote": "The best way to predict the future is to create it.",
+          "action": "Start with your first task."
+        },
+        {
+          "title": "Power Through",
+          "quote": "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+          "action": "Tackle your high-priority tasks first."
+        },
+        {
+          "title": "Balance is Key",
+          "quote": "Work hard, rest well, and enjoy the journey.",
+          "action": "Remember to take your breaks."
+        }
+      ],
+      "next_best_action": "Prepare your gym bag and clothes for your early morning workout.",
+      "productivity_tip": "Batch similar tasks together where possible to minimize context switching. For example, if your meeting and paperwork are related, try to do them consecutively."
+    }
+  }
+}

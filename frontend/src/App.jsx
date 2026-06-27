@@ -23,14 +23,20 @@ import {
 } from "lucide-react";
 import "./App.css";
 
-const API_URL = "http://127.0.0.1:5000";
+const isLocalhost =
+  typeof window !== "undefined" &&
+  ["localhost", "127.0.0.1"].includes(window.location.hostname);
+
+const API_URL =
+  import.meta.env.VITE_API_URL || (isLocalhost ? "http://127.0.0.1:5000" : "");
+
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 const GOOGLE_CALENDAR_SCOPE = "https://www.googleapis.com/auth/calendar.events";
 const USER_TIMEZONE =
   Intl.DateTimeFormat().resolvedOptions().timeZone || "Asia/Kolkata";
 
 const DEMO_TEXT =
-  "I have DBMS assignment tomorrow, Java viva on Friday, maths test after 2 days, gym daily, and electricity bill payment today.";
+  "In morning need to go to the gym for workout from 6:00 to 8:30, come back home, fresh up and take shower, grab breakfast around 9:30, do Python course for 1 hour, get in meeting with my friend and professor for paperwork, have lunch around 1:00, take a quick nap for 1 hour, read my book, make tea around 5:30 and have family time till 10:00, dinner, complete my paper work, watch YouTube content, sleep around 12:30 at night, and take breaks between tasks.";
 
 const SAMPLE_TASKS = [
   "DBMS assignment tomorrow",
@@ -56,22 +62,33 @@ function CanvasParticles() {
     let animationFrame;
     let width = window.innerWidth;
     let height = window.innerHeight;
-    let mouse = { x: width / 2, y: height / 2, active: false };
 
-    const colors = ["#4285F4", "#DB4437", "#F4B400", "#0F9D58"];
+    const googleColors = ["#4285F4", "#DB4437", "#F4B400", "#0F9D58"];
 
-    const particles = Array.from({ length: 76 }, (_, index) => ({
+    const mouse = {
+      x: width / 2,
+      y: height / 2,
+      lastX: width / 2,
+      lastY: height / 2,
+      vx: 0,
+      vy: 0,
+      active: false,
+      lastMoveTime: Date.now(),
+    };
+
+    const particles = Array.from({ length: 130 }, (_, index) => ({
       x: Math.random() * width,
       y: Math.random() * height,
       baseX: Math.random() * width,
       baseY: Math.random() * height,
-      radius: Math.random() * 12 + 6,
-      speed: Math.random() * 0.45 + 0.18,
-      drift: Math.random() * 0.8 + 0.2,
+      vx: 0,
+      vy: 0,
+      radius: Math.random() * 3.2 + 1.4,
+      color: googleColors[index % googleColors.length],
+      opacity: Math.random() * 0.45 + 0.22,
+      floatSpeed: Math.random() * 0.45 + 0.18,
       angle: Math.random() * Math.PI * 2,
-      color: colors[index % colors.length],
-      opacity: Math.random() * 0.32 + 0.14,
-      lineWidth: Math.random() * 1.4 + 0.8,
+      drift: Math.random() * 0.9 + 0.25,
     }));
 
     const resize = () => {
@@ -94,73 +111,129 @@ function CanvasParticles() {
     };
 
     const handleMouseMove = (event) => {
+      mouse.lastX = mouse.x;
+      mouse.lastY = mouse.y;
+
       mouse.x = event.clientX;
       mouse.y = event.clientY;
+
+      mouse.vx = mouse.x - mouse.lastX;
+      mouse.vy = mouse.y - mouse.lastY;
+
       mouse.active = true;
+      mouse.lastMoveTime = Date.now();
     };
 
     const handleMouseLeave = () => {
       mouse.active = false;
+      mouse.vx = 0;
+      mouse.vy = 0;
     };
 
-    const drawRing = (particle) => {
+    const drawParticle = (particle) => {
       ctx.save();
 
       ctx.globalAlpha = particle.opacity;
-      ctx.strokeStyle = particle.color;
-      ctx.lineWidth = particle.lineWidth;
+      ctx.fillStyle = particle.color;
 
       ctx.beginPath();
       ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-      ctx.stroke();
+      ctx.fill();
 
-      ctx.globalAlpha = particle.opacity * 0.45;
+      ctx.shadowColor = particle.color;
+      ctx.shadowBlur = 8;
+
       ctx.beginPath();
-      ctx.arc(
-        particle.x + particle.radius * 0.35,
-        particle.y - particle.radius * 0.35,
-        particle.radius * 0.42,
-        0,
-        Math.PI * 2
-      );
-      ctx.stroke();
+      ctx.arc(particle.x, particle.y, particle.radius * 0.7, 0, Math.PI * 2);
+      ctx.fill();
 
+      ctx.restore();
+    };
+
+    const drawCursorGlow = () => {
+      if (!mouse.active) return;
+
+      const gradient = ctx.createRadialGradient(
+        mouse.x,
+        mouse.y,
+        0,
+        mouse.x,
+        mouse.y,
+        210
+      );
+
+      gradient.addColorStop(0, "rgba(66, 133, 244, 0.10)");
+      gradient.addColorStop(0.35, "rgba(244, 180, 0, 0.07)");
+      gradient.addColorStop(0.7, "rgba(15, 157, 88, 0.04)");
+      gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+
+      ctx.save();
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(mouse.x, mouse.y, 210, 0, Math.PI * 2);
+      ctx.fill();
       ctx.restore();
     };
 
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
 
+      if (Date.now() - mouse.lastMoveTime > 1500) {
+        mouse.active = false;
+      }
+
+      mouse.vx *= 0.88;
+      mouse.vy *= 0.88;
+
+      drawCursorGlow();
+
       particles.forEach((particle) => {
-        particle.angle += particle.speed * 0.01;
+        particle.angle += particle.floatSpeed * 0.01;
 
         const floatX = Math.cos(particle.angle) * particle.drift * 18;
-        const floatY = Math.sin(particle.angle * 1.4) * particle.drift * 22;
+        const floatY = Math.sin(particle.angle * 1.35) * particle.drift * 22;
 
-        particle.x += (particle.baseX + floatX - particle.x) * 0.015;
-        particle.y += (particle.baseY + floatY - particle.y) * 0.015;
+        const targetX = particle.baseX + floatX;
+        const targetY = particle.baseY + floatY;
 
-        if (mouse.active) {
-          const dx = particle.x - mouse.x;
-          const dy = particle.y - mouse.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          const forceDistance = 150;
+        const dx = mouse.x - particle.x;
+        const dy = mouse.y - particle.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < forceDistance && distance > 0) {
-            const force = (forceDistance - distance) / forceDistance;
-            particle.x += (dx / distance) * force * 4;
-            particle.y += (dy / distance) * force * 4;
-          }
+        const attractionRadius = 280;
+
+        if (mouse.active && distance < attractionRadius) {
+          const force = Math.pow(1 - distance / attractionRadius, 2);
+
+          particle.vx += dx * 0.0048 * force;
+          particle.vy += dy * 0.0048 * force;
+
+          particle.vx += mouse.vx * 0.06 * force;
+          particle.vy += mouse.vy * 0.06 * force;
+        } else {
+          particle.vx += (targetX - particle.x) * 0.002;
+          particle.vy += (targetY - particle.y) * 0.002;
         }
 
-        if (particle.baseY < -60) {
-          particle.baseY = height + 60;
+        particle.vx *= 0.92;
+        particle.vy *= 0.92;
+
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+
+        if (particle.baseY < -80) {
+          particle.baseY = height + 80;
           particle.baseX = Math.random() * width;
         } else {
-          particle.baseY -= particle.speed * 0.28;
+          particle.baseY -= particle.floatSpeed * 0.22;
         }
 
-        drawRing(particle);
+        if (particle.x < -100) particle.x = width + 100;
+        if (particle.x > width + 100) particle.x = -100;
+        if (particle.y < -100) particle.y = height + 100;
+        if (particle.y > height + 100) particle.y = -100;
+
+        drawParticle(particle);
       });
 
       animationFrame = requestAnimationFrame(animate);
@@ -203,6 +276,11 @@ function App() {
   const [calendarSyncing, setCalendarSyncing] = useState(false);
   const [calendarStatus, setCalendarStatus] = useState("");
   const [calendarError, setCalendarError] = useState("");
+
+  const [rescuePlan, setRescuePlan] = useState(null);
+  const [rescueOpen, setRescueOpen] = useState(false);
+  const [rescueLoadingIndex, setRescueLoadingIndex] = useState(null);
+  const [rescueError, setRescueError] = useState("");
 
   const tokenRequestRef = useRef(null);
 
@@ -289,6 +367,9 @@ function App() {
     setPlan(null);
     setModelUsed("");
     setTaskStatuses([]);
+    setRescuePlan(null);
+    setRescueOpen(false);
+    setRescueError("");
     setTimeout(() => scrollToSection("planner"), 100);
   };
 
@@ -320,6 +401,10 @@ function App() {
     setTaskStatuses([]);
     setCalendarStatus("");
     setCalendarError("");
+    setRescuePlan(null);
+    setRescueOpen(false);
+    setRescueError("");
+    setRescueLoadingIndex(null);
 
     try {
       const response = await fetch(`${API_URL}/api/plan`, {
@@ -356,7 +441,11 @@ function App() {
       ) {
         setError("Gemini is temporarily busy. Please try again in a few seconds.");
       } else if (message.includes("Failed to fetch")) {
-        setError("Backend is not running. Please start Flask backend first.");
+        setError(
+          `Backend is not reachable at ${
+            API_URL || "the deployed server"
+          }. Start Flask backend locally or check your Cloud Run deployment.`
+        );
       } else {
         setError(message);
       }
@@ -392,6 +481,9 @@ function App() {
     setTaskText(record.raw_input || "");
     setModelUsed(record.model_used || "Gemini");
     setTaskStatuses(record.plan?.tasks?.map(() => "Pending") || []);
+    setRescuePlan(null);
+    setRescueOpen(false);
+    setRescueError("");
     setTimeout(() => scrollToSection("results"), 150);
   };
 
@@ -438,6 +530,54 @@ function App() {
     setTaskStatuses([]);
     setCalendarStatus("");
     setCalendarError("");
+    setRescuePlan(null);
+    setRescueOpen(false);
+    setRescueError("");
+    setRescueLoadingIndex(null);
+  };
+
+  const generateRescuePlan = async (task, index) => {
+    setRescueLoadingIndex(index);
+    setRescueError("");
+    setCalendarStatus("");
+    setCalendarError("");
+
+    try {
+      const response = await fetch(`${API_URL}/api/rescue`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          task,
+          plan_summary: plan?.summary || "",
+          today_schedule: plan?.today_schedule || [],
+          weekly_plan: plan?.weekly_plan || [],
+          current_status: taskStatuses[index] || "Pending",
+          raw_input: taskText,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || "Could not generate rescue plan.");
+      }
+
+      setRescuePlan(data.rescue_plan);
+      setRescueOpen(true);
+
+      setTimeout(() => {
+        document.getElementById("rescue-panel")?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 150);
+    } catch (err) {
+      setRescueError(err.message || "Could not generate rescue plan.");
+    } finally {
+      setRescueLoadingIndex(null);
+    }
   };
 
   const escapeICS = (text = "") => {
@@ -787,6 +927,20 @@ function App() {
       .replace(/\s+/g, "-");
   };
 
+  const cleanUiText = (value = "", maxLength = 120) => {
+    const text = String(value || "").replace(/\s+/g, " ").trim();
+
+    if (text.length <= maxLength) {
+      return text;
+    }
+
+    return `${text.slice(0, maxLength).trim()}...`;
+  };
+
+  const cleanTitle = (value = "Task") => {
+    return cleanUiText(value, 70);
+  };
+
   return (
     <div className="app">
       <AntiGravityParticles />
@@ -1089,12 +1243,12 @@ function App() {
             <div className="overviewGrid">
               <div className="overviewCard">
                 <p>AI Summary</p>
-                <h3>{plan.summary}</h3>
+                <h3>{cleanUiText(plan.summary, 180)}</h3>
               </div>
 
               <div className="overviewCard focusOverview">
                 <p>Next Best Action</p>
-                <h3>{plan.next_best_action}</h3>
+                <h3>{cleanUiText(plan.next_best_action, 180)}</h3>
               </div>
 
               <div className="overviewCard progressOverview">
@@ -1111,6 +1265,79 @@ function App() {
                 </div>
               </div>
             </div>
+
+            {rescueError && (
+              <div className="calendarMessage calendarMessageError">
+                {rescueError}
+              </div>
+            )}
+
+            {rescueOpen && rescuePlan && (
+              <section className="rescuePanel" id="rescue-panel">
+                <div className="rescueHeader">
+                  <div>
+                    <p className="cardLabel">AI Rescue Trigger</p>
+                    <h2>
+                      <Zap size={24} />
+                      Recovery plan activated
+                    </h2>
+                  </div>
+
+                  <button onClick={() => setRescueOpen(false)} type="button">
+                    Close
+                  </button>
+                </div>
+
+                <div className="rescueGrid">
+                  <div className="rescueMainCard">
+                    <span className="riskBadge">
+                      {rescuePlan.risk_level || "Medium"} Risk
+                    </span>
+
+                    <h3>{cleanTitle(rescuePlan.missed_task)}</h3>
+                    <p>{cleanUiText(rescuePlan.rescue_summary, 220)}</p>
+                  </div>
+
+                  <div className="rescueSprintCard">
+                    <p className="cardLabel">Emergency Sprint</p>
+                    <h3>{rescuePlan.emergency_sprint?.duration}</h3>
+                    <p>{cleanUiText(rescuePlan.emergency_sprint?.goal, 160)}</p>
+
+                    <div className="sprintSteps">
+                      {rescuePlan.emergency_sprint?.steps?.map((step, stepIndex) => (
+                        <div className="sprintStep" key={stepIndex}>
+                          <span>{stepIndex + 1}</span>
+                          <p>{cleanUiText(step, 140)}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="rescueAdjustCard">
+                    <p className="cardLabel">Schedule Adjustments</p>
+
+                    <div className="adjustList">
+                      {rescuePlan.schedule_adjustments?.map((item, itemIndex) => (
+                        <div className="adjustItem" key={itemIndex}>
+                          <strong>{cleanUiText(item.change, 100)}</strong>
+                          <p>{cleanUiText(item.reason, 150)}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="rescueMessageCard">
+                    <p className="cardLabel">Recovery Message</p>
+                    <h3>{cleanUiText(rescuePlan.recovery_message, 180)}</h3>
+
+                    <div className="calendarSuggestion">
+                      <CalendarPlus size={18} />
+                      {cleanUiText(rescuePlan.calendar_suggestion, 160)}
+                    </div>
+                  </div>
+                </div>
+              </section>
+            )}
 
             <div className="executionLayout">
               <section className="taskQueue">
@@ -1139,10 +1366,11 @@ function App() {
                     >
                       <div className="taskTop">
                         <div>
-                          <h3>{task.title}</h3>
+                          <h3 title={task.title}>{cleanTitle(task.title)}</h3>
+
                           <div className="taskMeta">
                             <span>{task.category}</span>
-                            <span>{task.deadline}</span>
+                            <span>{cleanUiText(task.deadline, 40)}</span>
                             <span>{task.estimated_time}</span>
                           </div>
                         </div>
@@ -1152,10 +1380,11 @@ function App() {
                         </span>
                       </div>
 
-                      <p>{task.reason}</p>
+                      <p>{cleanUiText(task.reason, 170)}</p>
 
                       <div className="smallAction">
-                        <strong>First Action:</strong> {task.next_action}
+                        <strong>First Action:</strong>{" "}
+                        {cleanUiText(task.next_action, 130)}
                       </div>
 
                       <div className="statusControls">
@@ -1171,6 +1400,23 @@ function App() {
                             {status}
                           </button>
                         ))}
+
+                        <button
+                          className="rescueBtn"
+                          onClick={() => generateRescuePlan(task, index)}
+                          disabled={
+                            rescueLoadingIndex === index ||
+                            taskStatuses[index] === "Done"
+                          }
+                          type="button"
+                        >
+                          {rescueLoadingIndex === index ? (
+                            <Loader2 className="spin" size={14} />
+                          ) : (
+                            <Zap size={14} />
+                          )}
+                          Rescue
+                        </button>
                       </div>
                     </div>
                   ))}
@@ -1195,8 +1441,10 @@ function App() {
                             {item.time}
                           </div>
 
-                          <h3>{item.activity}</h3>
-                          <p>{item.reason}</p>
+                          <h3 title={item.activity}>
+                            {cleanTitle(item.activity)}
+                          </h3>
+                          <p>{cleanUiText(item.reason, 150)}</p>
                         </div>
                       </div>
                     ))}
@@ -1214,10 +1462,11 @@ function App() {
                       {plan.reminders.map((reminder, index) => (
                         <div className="compactCard reminderCard" key={index}>
                           <span className="reminderTime">{reminder.time}</span>
-                          <h3>{reminder.message}</h3>
-                          <p>{reminder.context}</p>
+                          <h3>{cleanUiText(reminder.message, 100)}</h3>
+                          <p>{cleanUiText(reminder.context, 150)}</p>
                           <div className="reminderAction">
-                            <strong>Action:</strong> {reminder.action}
+                            <strong>Action:</strong>{" "}
+                            {cleanUiText(reminder.action, 120)}
                           </div>
                         </div>
                       ))}
@@ -1247,8 +1496,10 @@ function App() {
                               <div className="weekItem" key={itemIndex}>
                                 <span>{item.time}</span>
                                 <div>
-                                  <strong>{item.title}</strong>
-                                  <p>{item.reason}</p>
+                                  <strong title={item.title}>
+                                    {cleanTitle(item.title)}
+                                  </strong>
+                                  <p>{cleanUiText(item.reason, 140)}</p>
                                 </div>
                               </div>
                             ))}
@@ -1272,7 +1523,7 @@ function App() {
                       {plan.habits.map((habit, index) => (
                         <div className="compactCard habitCard" key={index}>
                           <div className="habitTop">
-                            <h3>{habit.name}</h3>
+                            <h3>{cleanTitle(habit.name)}</h3>
                             <span>{habit.status}</span>
                           </div>
 
@@ -1281,7 +1532,7 @@ function App() {
                             <span>{habit.streak}</span>
                           </div>
 
-                          <p>{habit.next_action}</p>
+                          <p>{cleanUiText(habit.next_action, 130)}</p>
                         </div>
                       ))}
                     </div>
@@ -1292,7 +1543,7 @@ function App() {
 
                 <section className="railPanel tipPanel">
                   <p className="cardLabel">Personalized Tip</p>
-                  <h3>{plan.productivity_tip}</h3>
+                  <h3>{cleanUiText(plan.productivity_tip, 170)}</h3>
                 </section>
 
                 <section className="railPanel motivationPanel">
@@ -1302,9 +1553,9 @@ function App() {
                     {plan.motivational_cards?.length > 0 ? (
                       plan.motivational_cards.map((card, index) => (
                         <div className="motivationCard" key={index}>
-                          <h3>{card.title}</h3>
-                          <p>{card.quote}</p>
-                          <span>{card.action}</span>
+                          <h3>{cleanTitle(card.title)}</h3>
+                          <p>{cleanUiText(card.quote, 140)}</p>
+                          <span>{cleanUiText(card.action, 90)}</span>
                         </div>
                       ))
                     ) : (
